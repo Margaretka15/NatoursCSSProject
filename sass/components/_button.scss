@@ -8,6 +8,7 @@
     border-radius: 10rem;
     transition: all .2s; /* this makes the changes smooth */
     position: relative;
+    font-size: $default-font-size;
   }
 
   &:hover {
@@ -51,5 +52,25 @@
     /*animation-delay: 3s;*/
     animation: moveInButton .5s ease-out .75s;
     animation-fill-mode: backwards; /* styles in moveInBotton will be applied before animation starts*/
+  }
+}
+.btn-text{
+  &:link,
+  &:visited{
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: $color-primary 1px solid;
+    font-size: $default-font-size;
+    transition: all 0.2s;
+  }
+  &:hover{
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-2px);
+  }
+  &:active{
+    transform: translateY(0);
   }
 }

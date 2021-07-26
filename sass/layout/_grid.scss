@@ -9,7 +9,7 @@
 
   [class^="col-"]{//attribute selector - selects all columns that starts with "col-" :o
     float: left;
-    background-color: #7ed56f;
+    //background-color: #7ed56f;
     &:not(:last-child)
     {
       margin-right: $gutter-horizontal;
