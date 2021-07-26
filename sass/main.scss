@@ -1,7 +1,15 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-$color-primary:  #55c57a;
-$color-primary-light:  #7ed56f;
-$color-primary-dark: #28b485;
+@import "base/base";
+@import "base/animations";
+@import "base/utilities";
+@import "base/typography";
+
+@import "pages/home";
+
+
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +28,7 @@ body{
   box-sizing: border-box;
 
 }
-.header{
+.header {
   height: 95vh;
   background-image: linear-gradient(
                   to right bottom,
@@ -33,47 +41,53 @@ body{
 
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
-}
-.header__logo-box{
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
-.header__logo{
-  height: 3.5rem;
+  /* and now the magic happens. But refactoring gets harder? :/ */
 
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
-.header__text-box{
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.heading-primary{
-  color: #ffffff;
+.heading-primary {
+  color: $color-white;
   text-transform: uppercase;
   backface-visibility: hidden;
   margin-bottom: 6rem;
-}
-.header-primary--main{
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  /*animation-delay: 0.5s;*/
-  /*animation-iteration-count: 2;*/
-  animation-timing-function: ease-out;
-}
 
-.header-primary--sub{
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.7rem;
-  animation: moveInRight 1s ease-out;
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /*animation-delay: 0.5s;*/
+    /*animation-iteration-count: 2;*/
+    animation-timing-function: ease-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    animation: moveInRight 1s ease-out;
+  }
 }
 
 @keyframes moveInLeft {
@@ -117,53 +131,58 @@ body{
     transform: translate(0);
   }
 }
-.btn:link,
-.btn-visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding:  1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all .2s; /* this makes the changes smooth */
-  position: relative;
+.btn {
+  &:link,
+  &-visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s; /* this makes the changes smooth */
+    position: relative;
+  }
 
+  &:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
 
-}
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
 
-.btn:hover{
-  transform: translateY(-.3rem);
-  box-shadow: 0 1rem 2rem rgba(0,0,0, .2);
-}
-.btn:active{
-  transform: translateY(-.1rem);
-  box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
-}
-.btn--white{
-  background-color: #ffffff;
-  color: #777777;
-}
-.btn::after{
-  content: "";
-  display: inline-block; /*  we want to have the same button behind our button*/
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s; /* we put it here because this is an initial state*/
-}
-.btn--white::after{
-  background-color: #ffffff;
-}
-.btn:hover::after{
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
+  &:active {
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+  }
 
-}
-.btn--animated{
-  /*animation-delay: 3s;*/
-  animation:  moveInButton .5s ease-out .75s;
-  animation-fill-mode: backwards; /* styles in moveInBotton will be applied before animation starts*/
+  &--white {
+    background-color: #ffffff;
+    color: #777777;
+
+    &::after {
+      background-color: #ffffff;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block; /*  we want to have the same button behind our button*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s; /* we put it here because this is an initial state*/
+  }
+
+  &--animated {
+    /*animation-delay: 3s;*/
+    animation: moveInButton .5s ease-out .75s;
+    animation-fill-mode: backwards; /* styles in moveInBotton will be applied before animation starts*/
+  }
 }
