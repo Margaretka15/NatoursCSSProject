@@ -26,13 +26,15 @@
 
     &--back {
       transform: rotateY(180deg); /// at the beginning it is already rotated
-      &-1{
+      &-1 {
         background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
       }
-      &-2{
+
+      &-2 {
         background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
       }
-      &-3{
+
+      &-3 {
         background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
       }
     }
@@ -48,24 +50,28 @@
   }
 
   // FRONT SIDE STYLING
-  &__picture{
+  &__picture {
     background-size: cover;
     height: 23rem;
     background-blend-mode: screen;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    &--1{
+
+    &--1 {
       background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url("../img/nat-5.jpg");
     }
-    &--2{
-      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url("../img/nat-6.jpg"); ;
+
+    &--2 {
+      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url("../img/nat-6.jpg");;
     }
-    &--3{
+
+    &--3 {
       background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url("../img/nat-7.jpg");;
     }
 
   }
-  &__heading{
+
+  &__heading {
     font-size: 2.8rem;
     color: $color-white;
     font-weight: 300;
@@ -77,32 +83,36 @@
     width: 75%;
   }
 
-  &__heading-span{
+  &__heading-span {
     padding: 1rem 1.5rem;
-   -webkit-box-decoration-break: clone; ///this is magic too. this kind of breaks the span in html into two pieces, but there are still one span.
-    &--1{
+    -webkit-box-decoration-break: clone; ///this is magic too. this kind of breaks the span in html into two pieces, but there are still one span.
+    &--1 {
       background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .85), rgba($color-secondary-dark, .85));
     }
-    &--2{
+
+    &--2 {
       background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
     }
-    &--3{
+
+    &--3 {
       background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85));
     }
   }
-  &__details{
+
+  &__details {
     padding: 3rem;
-    ul{
+
+    ul {
       list-style: none;
       width: 80%;
       margin: 0 auto;
-      li{
+
+      li {
         text-align: center;
         font-size: $default-font-size;
         padding: 1rem;
 
-        &:not(:last-child)
-        {
+        &:not(:last-child) {
           border-bottom: 1px solid $color-grey-light-2;
         }
       }
@@ -110,6 +120,28 @@
   }
 
   //BACK-SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+  &__price-box{
 
+    margin-bottom: 8rem;
+    color: $color-white;
+  }
+
+  &__price-only{
+    text-transform: uppercase;
+    font-size: 1.4rem;
+  }
+
+  &__price-value{
+    font-size: 6rem;
+    font-weight: 100;
+  }
 }
 
