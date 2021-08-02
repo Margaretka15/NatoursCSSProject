@@ -28,6 +28,7 @@
     z-index: 1000;
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     transition: transform .8s cubic-bezier(0.83, 0, 0.17, 1);
+    user-select: none;
 
   }
   &__nav{
