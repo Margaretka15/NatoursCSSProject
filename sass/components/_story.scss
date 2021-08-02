@@ -34,6 +34,7 @@
     transform: translateX(-4rem) scale(1.4);
     backface-visibility: hidden; /// when something weird happens with animation this usually fixes it. But why? Idk.
     transition: all .5s;
+    overflow: hidden;
 
 
   }
