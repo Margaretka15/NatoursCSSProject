@@ -32,12 +32,14 @@
     background-color: #28b485;
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%); // first - radius, then position in the center. For this to work, the element HAS to have dimensions defined and also float.
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
+    //-webkit-clip-path: circle(50% at 50% 50%); /// it was an overkill for me but it is nice to know it is possible
+    //clip-path: circle(50% at 50% 50%);
+    border-radius: 50%;
+    overflow: hidden;
     transform: translateX(-3rem) skewX(12deg) ; /// this is to add some space between the circle and the text. It is better this way than using margin since this is a floated element
     // beacuse we used "transform" to translate the circle, the transform to skew couldn't work - we can;t use transform property twice so it's just added here
     position: relative;
-    overflow: hidden;
+
 
     @include respond(phone){
       transform: translateX(-3rem) skewX(0) ;
